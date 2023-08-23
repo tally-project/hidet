@@ -151,6 +151,7 @@ class NVCC(SourceCompiler):
             '-std=c++11',
             # the target PTX and SASS version.
             '-gencode arch=compute_{cc},code=sm_{cc}'.format(cc=arch[len('sm_') :]),
+            '-gencode arch=compute_{cc},code=compute_{cc}'.format(cc=arch[len('sm_') :]),
             # allow ptxas (PTX assembler) to output information like register/smem usage.
             '--ptxas-options=-v',
             # compile into position independent code.
